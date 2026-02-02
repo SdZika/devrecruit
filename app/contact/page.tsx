@@ -51,7 +51,7 @@ export default function ContactPage() {
                       href="mailto:contact@stellarnorthservices.com"
                       className="text-sky-600 hover:underline"
                     >
-                      contact@stellarnorthservices.com
+                      office@stellarnorthservices.com
                     </a>
                   </div>
                 </div>
@@ -62,10 +62,10 @@ export default function ContactPage() {
                   <div>
                     <h3 className="font-semibold mb-1">Phone</h3>
                     <a
-                      href="tel:+15551234567"
+                      href="tel:+18478059655"
                       className="text-sky-600 hover:underline"
                     >
-                      +1 (555) 123-4567
+                      +1 (847) 805-9655
                     </a>
                   </div>
                 </div>
@@ -76,14 +76,14 @@ export default function ContactPage() {
                 <h3 className="font-semibold mb-4 text-slate-900">Follow Us</h3>
                 <div className="flex gap-4">
                   <a
-                    href="#"
+                    href="https://www.linkedin.com/company/stellar-north-services/"
                     aria-label="LinkedIn"
                     className="w-10 h-10 rounded-full bg-sky-600 text-white flex items-center justify-center hover:bg-sky-700 transition"
                   >
                     <Linkedin className="w-5 h-5" />
                   </a>
                   <a
-                    href="#"
+                    href="https://github.com/SdZika"
                     aria-label="GitHub"
                     className="w-10 h-10 rounded-full bg-slate-800 text-white flex items-center justify-center hover:bg-slate-900 transition"
                   >
