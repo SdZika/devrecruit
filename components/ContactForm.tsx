@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Send } from "lucide-react";
 
 interface FormData {
@@ -20,6 +20,31 @@ export default function ContactForm() {
     message: "",
   });
   const [formStatus, setFormStatus] = useState<FormStatus>("idle");
+
+  const formRef = useRef<HTMLDivElement | null>(null);
+  const inputRef = useRef<HTMLInputElement | null>(null);
+
+  useEffect(() => {
+  const hash = window.location.hash;
+
+  if (hash === "#contact-form" && formRef.current) {
+    // scroll into view
+    formRef.current.scrollIntoView({ behavior: "smooth", block: "center" });
+
+    // highlight effect
+    formRef.current.classList.add("ring-4", "ring-sky-400");
+
+    // remove highlight after animation
+    setTimeout(() => {
+      formRef.current?.classList.remove("ring-4", "ring-sky-400");
+    }, 2000);
+
+    // focus first input (nice UX)
+    setTimeout(() => {
+      inputRef.current?.focus();
+    }, 400);
+  }
+}, []);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -54,7 +79,7 @@ export default function ContactForm() {
   };
 
   return (
-    <div className="bg-white rounded-2xl shadow-xl p-8">
+    <div ref={formRef} id="contact-form" className="bg-white rounded-2xl shadow-xl p-8 transition-all">
       <h2 className="text-2xl font-bold mb-6 text-slate-900">
         Send us a message
       </h2>
@@ -68,6 +93,7 @@ export default function ContactForm() {
           <input
             type="text"
             name="name"
+            ref={inputRef}
             value={formData.name}
             onChange={handleInputChange}
             required
